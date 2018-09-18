@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/unlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNLOCK"
+        />
+
+    <Button
+        android:id="@+id/lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOCK" />
+
+    <ListView
+        android:id="@+id/List_Apps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:listSelector="#C0C0C0">
+
+    </ListView>
+
+</LinearLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/Side_Nav_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        />
+</android.support.v4.widget.DrawerLayout>
