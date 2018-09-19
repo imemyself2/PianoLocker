@@ -183,11 +183,18 @@ public class Piano extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please Enter a combination", Toast.LENGTH_SHORT).show();
                 } else {
                     for (int i = 0; i < origAns.length(); i++) {
-                        // Log.d("Test",origAns.substring(i, i + 1)+"INSIDE ADD");
+                         //Log.d("Test",origAns.substring(i, i + 1)+"INSIDE ADD");
                         Compare.add(Integer.parseInt(origAns.substring(i, i + 1)));
                     }
+
+
                     //Log.d("Test", String.valueOf(Compare.size()));
-                    for (int i = 0; i < Compare.size(); i++) {
+                    for (int i = 0; i < key.size(); i++) {
+                        if(key.size() != Compare.size())
+                        {
+                            flag = 1;
+                            break;
+                        }
                         // Log.d("Test",key.get(i).toString());
                         if (Compare.get(i) != key.get(i)) {
                             // Log.d("Test",Compare.get(i).toString() + " THIS I SFALSE");
