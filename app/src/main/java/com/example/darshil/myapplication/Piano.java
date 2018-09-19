@@ -170,39 +170,45 @@ public class Piano extends AppCompatActivity {
         });
 
         unlock.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-            String origAns = readFromFile();
-            //Log.d("Test",origAns+"ORIG ANDS");
-            int flag = 0;
-            ArrayList<Integer> Compare = new ArrayList<>();
-            for(int i = 0;i < origAns.length();i++) {
-               // Log.d("Test",origAns.substring(i, i + 1)+"INSIDE ADD");
-                Compare.add(Integer.parseInt(origAns.substring(i, i + 1)));
-            }
-            //Log.d("Test", String.valueOf(Compare.size()));
-            for(int i = 0;i < Compare.size();i++)
-            {
-               // Log.d("Test",key.get(i).toString());
-                if(Compare.get(i) != key.get(i))
-                {
-                   // Log.d("Test",Compare.get(i).toString() + " THIS I SFALSE");
-                    flag = 1;
-                    break;
+                ArrayList<Integer> Compare = new ArrayList<>();
+
+                String origAns = readFromFile();
+                //Log.d("Test",origAns+"ORIG ANDS");
+                int flag = 0;
+
+                if (key.size() == 0) {
+                    Toast.makeText(getApplicationContext(), "Please Enter a combination", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (int i = 0; i < origAns.length(); i++) {
+                        // Log.d("Test",origAns.substring(i, i + 1)+"INSIDE ADD");
+                        Compare.add(Integer.parseInt(origAns.substring(i, i + 1)));
+                    }
+                    //Log.d("Test", String.valueOf(Compare.size()));
+                    for (int i = 0; i < Compare.size(); i++) {
+                        // Log.d("Test",key.get(i).toString());
+                        if (Compare.get(i) != key.get(i)) {
+                            // Log.d("Test",Compare.get(i).toString() + " THIS I SFALSE");
+                            flag = 1;
+                            break;
+                        }
+                    }
+
+                    if (flag == 0) {
+                        Log.d("Test", "The key is correct");
+                        Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
+                        finish();
+
+                    } else {
+                        Log.d("Test", "The key is incorrect");
+                        Toast.makeText(getApplicationContext(), "THE KEY IS INCORRECT", Toast.LENGTH_SHORT).show();
+                    }
+
+                    while (!key.isEmpty())
+                        key.remove(0);
                 }
-            }
-
-            if(flag == 0)
-            {
-                Log.d("Test","The key is correct");
-                Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_SHORT).show();
-
-            }
-            else{ Log.d("Test","The key is incorrect");
-                Toast.makeText(getApplicationContext(),"THE KEY IS INCORRECT",Toast.LENGTH_SHORT).show();}
-
-            while(!key.isEmpty())
-                key.remove(0);
             }
         });
 
