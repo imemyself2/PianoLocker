@@ -38,6 +38,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -121,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                     FingerprintHandler fingerprintHandler = new FingerprintHandler(this);
                     int ans = fingerprintHandler.startAuth(fingerprintManager, cryptoObject, context);
 
-                    Log.d("Test", String.valueOf(ans));
 
                 }
             }

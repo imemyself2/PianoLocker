@@ -1,6 +1,7 @@
 package com.example.darshil.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Piano extends AppCompatActivity {
     String origAns = "";
@@ -206,7 +209,14 @@ public class Piano extends AppCompatActivity {
                     if (flag == 0) {
                         Log.d("Test", "The key is correct");
                         Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT).show();
-                        finish();
+                        Timer timer= new Timer();
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                finish();
+                            }
+                        }, 1500);
+
 
                     } else {
                         Log.d("Test", "The key is incorrect");

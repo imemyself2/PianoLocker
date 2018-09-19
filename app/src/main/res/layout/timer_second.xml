@@ -1,47 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/wallpaper11"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<LinearLayout
-    android:id="@+id/Linear_Layout_2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="vertical"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/display_req_pass"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:text="Please enter your passcode"
-        android:textSize="25dp"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="220dp"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@android:drawable/ic_media_rew" />
 
-    <EditText
-        android:id="@+id/enter_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="176dp"
-        />
-    <Button
-        android:id="@+id/submit_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="submit"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="220dp" />
+    <LinearLayout
+        android:id="@+id/Linear_Layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258">
 
-</LinearLayout>
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/display_req_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter your passcode"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <EditText
+            android:id="@+id/enter_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="176dp" />
+
+        <Button
+            android:id="@+id/submit_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="submit"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+    </LinearLayout>
+</RelativeLayout>

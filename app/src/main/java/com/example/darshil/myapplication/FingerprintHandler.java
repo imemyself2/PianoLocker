@@ -13,6 +13,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
     int flag = 0;
@@ -59,12 +62,18 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
         this.update("You can now access the app.", true);
         Log.d("Test","Setting flag to 1");
-        Intent intent = new Intent(this.context,LoginActivity.class);
+        Intent intent = new Intent(this.context,TransitionAnimation.class);
         final MediaPlayer unlockSound = MediaPlayer.create(context,R.raw.iphone_unlock );
         unlockSound.start();
+//        Timer timer= new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//            }
+//        }, 2500);
+
 
         this.context.startActivity(intent);
-
 
 
     }

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,15 @@ public class SecondTimer extends AppCompatActivity {
                 if(readFromFile() == 1){
                     startActivity(new Intent(SecondTimer.this, LoginActivity.class));
                 }
+            }
+        });
+        ImageButton button = findViewById(R.id.back);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SecondTimer.this,MainActivity.class);
+                startActivity(intent);
+
             }
         });
 

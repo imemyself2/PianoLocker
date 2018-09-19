@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -27,6 +28,15 @@ public class FirstEntry extends AppCompatActivity{
 
         final EditText editText = findViewById(R.id.pw);
         Button btnn = findViewById(R.id.btn);
+        ImageButton button = findViewById(R.id.back);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FirstEntry.this,MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         btnn.setOnClickListener(new View.OnClickListener() {
             @Override
