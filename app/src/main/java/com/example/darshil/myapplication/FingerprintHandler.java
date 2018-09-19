@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.support.v4.content.ContextCompat;
@@ -24,7 +25,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
     }
 
-    public int startAuth(FingerprintManager fingerprintManager, FingerprintManager.CryptoObject cryptoObject){
+    public int startAuth(FingerprintManager fingerprintManager, FingerprintManager.CryptoObject cryptoObject, Context context){
 
         CancellationSignal cancellationSignal = new CancellationSignal();
         fingerprintManager.authenticate(cryptoObject, cancellationSignal, 0, this, null);
@@ -59,12 +60,10 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
         this.update("You can now access the app.", true);
         Log.d("Test","Setting flag to 1");
         Intent intent = new Intent(this.context,LoginActivity.class);
+        final MediaPlayer unlockSound = MediaPlayer.create(context,R.raw.iphone_unlock );
+        unlockSound.start();
+
         this.context.startActivity(intent);
-
-
-
-
-
 
 
 

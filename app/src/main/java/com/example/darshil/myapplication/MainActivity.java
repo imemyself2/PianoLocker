@@ -3,10 +3,12 @@ package com.example.darshil.myapplication;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
@@ -19,6 +21,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import junit.framework.Test;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -42,7 +46,7 @@ import javax.crypto.SecretKey;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    public Context context = this;
     private TextView mHeadingLabel;
     private ImageView mFingerprintImage;
     private TextView mParaLabel;
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     private KeyStore keyStore;
     private Cipher cipher;
     private String KEY_NAME = "AndroidKey";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,17 +119,12 @@ public class MainActivity extends AppCompatActivity {
 
                     FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
                     FingerprintHandler fingerprintHandler = new FingerprintHandler(this);
-                    int ans = fingerprintHandler.startAuth(fingerprintManager, cryptoObject);
+                    int ans = fingerprintHandler.startAuth(fingerprintManager, cryptoObject, context);
 
-                    if(ans == 1)
-                    {
-                        readFromFile();
-
-                    }
+                    Log.d("Test", String.valueOf(ans));
 
                 }
             }
-
         }
 
     }

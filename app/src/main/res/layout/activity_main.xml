@@ -15,7 +15,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="105dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="233dp">
+        tools:layout_editor_absoluteY="233dp"
+        android:layout_alignParentLeft="true">
 
         <Button
             android:id="@+id/buttonWhite1"
@@ -134,6 +135,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="159dp"
-        android:text="UNLOCK" />
+        android:text="SUBMIT" />
 
 </RelativeLayout>
