@@ -48,7 +48,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".TransitionAnimation"></activity>
+        <activity android:name=".TransitionAnimation" />
+        <activity android:name=".PianoSetPass">
+            <intent-filter>
+                <action android:name="android.intent.action.PianoSetPass" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

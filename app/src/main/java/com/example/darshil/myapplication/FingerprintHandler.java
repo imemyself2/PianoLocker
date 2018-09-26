@@ -13,6 +13,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -60,11 +63,23 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
 
-        this.update("You can now access the app.", true);
-        Log.d("Test","Setting flag to 1");
-        Intent intent = new Intent(this.context,TransitionAnimation.class);
-        final MediaPlayer unlockSound = MediaPlayer.create(context,R.raw.iphone_unlock );
-        unlockSound.start();
+        FileInputStream temp = null;
+        try {
+            temp = new FileInputStream("storePianoPass.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(temp == null)
+        {
+            this.context.startActivity(new Intent("android.intent.action.PianoSetPass"));
+
+        }
+        else {
+            this.update("You can now access the app.", true);
+            Log.d("Test", "Setting flag to 1");
+            Intent intent = new Intent(this.context, TransitionAnimation.class);
+            final MediaPlayer unlockSound = MediaPlayer.create(context, R.raw.iphone_unlock);
+            unlockSound.start();
 //        Timer timer= new Timer();
 //        timer.schedule(new TimerTask() {
 //            @Override
@@ -73,7 +88,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 //        }, 2500);
 
 
-        this.context.startActivity(intent);
+            this.context.startActivity(intent);
+        }
 
 
     }

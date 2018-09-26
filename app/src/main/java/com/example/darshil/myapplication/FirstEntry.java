@@ -52,13 +52,20 @@ public class FirstEntry extends AppCompatActivity{
                         FileOutputStream fp = openFileOutput(fileName,MODE_PRIVATE);
                         fp.write(msg.getBytes());
                         fp.close();
-                        startActivity(new Intent("android.intent.action.LoginActivity"));
+                        startActivity(new Intent("android.intent.action.PianoSetPass"));
 
                     } catch (IOException e) {
                         Log.d("Test","Crashed");
                         e.printStackTrace();
                     }
+
                }
         });
+
+
     }
+
+
+
 }
+
