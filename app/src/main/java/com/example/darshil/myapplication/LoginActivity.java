@@ -49,9 +49,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent changePw = new Intent(LoginActivity.this,Piano.class);
-                changePw.putExtra("Check",10);
-                startActivity(changePw);
+//                Intent changePw = new Intent(LoginActivity.this,Piano.class);
+//                changePw.putExtra("Check",10);
+//                startActivity(changePw);
 
             }
         });
