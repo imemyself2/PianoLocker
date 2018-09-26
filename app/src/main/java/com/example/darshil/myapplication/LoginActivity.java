@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,6 +34,15 @@ public class LoginActivity extends AppCompatActivity {
                 List_of_apps.add(packInfo.applicationInfo.loadLabel(getPackageManager()).toString());
         }
     }
+
+//    public void installedApps()
+//    {
+//        List<ApplicationInfo> appList = getPackageManager().getInstalledApplications(0);
+//
+//       String temp = appList.get(0).loadLabel(getPackageManager()).toString();
+//       appList.get(0).load
+//       Log.d("Test","Application Class name: "+temp);
+//    }
 
 
     @Override
@@ -62,8 +72,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-    list_of_apps = new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_list_item_1, List_of_apps);
+    list_of_apps = new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_list_item_multiple_choice, List_of_apps);
     applist.setAdapter(list_of_apps);
+    applist.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     list_of_apps.notifyDataSetChanged();
     installedApps();
 
